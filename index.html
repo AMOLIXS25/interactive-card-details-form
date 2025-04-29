@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Payement Form</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./res/images/favicon-16x16.png">
 </head>
 <body>
-    
+    <main>
+        <div class="left-container" style="border: 1px solid red;background-color: red;">
+            <div class="front-card-container" style="background-color: aqua;">
+                <img src="./res/images/card-logo.svg" width="80" alt="card logo image">
+                <p class="card-number-text">0000 0000 0000 0000</p>
+                <p class="card-author-fullname-text">JORIS DELPEAU</p>
+                <p class="card-expiration-date">00/00</p>
+            </div>
+
+            <div class="back-card-container" style="background-color: beige;">
+                <p class="card-cvc-text">000</p>
+            </div>
+        </div>
+
+        <div class="right-container">
+            <form action="" method="post">
+                <div class="form-controls">
+                    <label for="cardholder-name-input">cardholder name</label>
+                    <input type="text" id="cardholder-name-input" name="cardholder_name" required placeholder="e.g Joris DelPeau" pattern=".{1,10}">
+                </div>
+                <div class="form-controls">
+                    <label for="card-number-input">card number</label>
+                    <input type="text" id="card-number-input" name="card_number" required inputmode="numeric" pattern="\d{16}" placeholder="e.g 1234 5678 9123 0000">
+                </div>
+                <div class="form-controls">
+                    <label for="card-expiration-date-month-input">exp. date (MM/YY)</label>
+                    <input type="text" id="card-expiration-date-month-input" name="card_expirations_date_month" maxlength="2" pattern="\d{2}" required placeholder="MM">
+                    <input type="text" id="card-expiration-date-year-input" name="card_expirations_date_year" maxlength="2" pattern="\d{2}" required placeholder="YY">
+                </div>
+                <div class="form-controls">
+                    <label for="card-cvc-input">CVC</label>
+                    <input type="text" id="card-cvc-input" required name="card_cvc" placeholder="e.g 123" maxlength="3" pattern="\d{3}">
+                </div>
+                <button class="btn btn-confirm" type="submit">Confirm</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
