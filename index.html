@@ -27,36 +27,42 @@
         </div>
 
         <div class="right-container">
+            <div class="complete-container">
+                <img src="./res/images/icon-complete.svg">
+                <h1>THANK YOU!</h1>
+                <p>We've added your card details</p>
+            </div>
             <form action="" method="post">
                 <div class="form-controls">
                     <label for="cardholder-name-input">cardholder name</label>
                     <br>
-                    <input type="text" id="cardholder-name-input" name="cardholder_name" required placeholder="e.g Joris DelPeau" pattern=".{1,10}">
+                    <input type="text" id="cardholder-name-input" name="cardholder_name" maxlength="15" required placeholder="e.g Joris DelPeau" pattern="^[A-Za-z]+( [A-Za-z]+)+$">
                 </div>
                 <div class="form-controls">
                     <label for="card-number-input">card number</label>
                     <br>
-                    <input type="text" id="card-number-input" name="card_number" maxlength="19" required inputmode="numeric" pattern="[0-9 ]+" minlength="19" placeholder="e.g 1234 5678 9123 0000">
+                    <input type="text" id="card-number-input" name="card_number" maxlength="19" required inputmode="numeric" pattern="[0-9\-]{19,}" minlength="19" placeholder="e.g 1234 5678 9123 0000">
                 </div>
                 <div class="form-controls">
                     <div class="date-form-controls-inputs-container">
                         <label for="card-expiration-date-month-input">exp. date (MM/YY)</label>
                         <br>
                         <div class="date-inputs-container">
-                            <input type="text" id="card-expiration-date-month-input" name="card_expirations_date_month" maxlength="2" pattern="\d{2}" required placeholder="MM">
-                            <input type="text" id="card-expiration-date-year-input" name="card_expirations_date_year" maxlength="2" pattern="\d{2}" required placeholder="YY">
+                            <input type="text" id="card-expiration-date-month-input" inputmode="numeric" name="card_expirations_date_month" maxlength="2" pattern="\d{2}" required placeholder="MM">
+                            <input type="text" id="card-expiration-date-year-input" inputmode="numeric" name="card_expirations_date_year" maxlength="2" pattern="\d{2}" required placeholder="YY">
                         </div>
                     </div>
                     <div class="cvc-input-container">
                         <label for="card-cvc-input">CVC</label>
                         <br>
-                        <input type="text" id="card-cvc-input" required name="card_cvc" placeholder="e.g 123" maxlength="3" pattern="\d{3}">
+                        <input type="text" id="card-cvc-input" required name="card_cvc" inputmode="numeric" placeholder="e.g 123" maxlength="3" pattern="\d{3}">
                     </div>
                 </div>
                 <button class="btn btn-confirm" type="submit">Confirm</button>
             </form>
         </div>
     </main>
+    <script src="./index.js"></script>
     <script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 </html>
