@@ -9,15 +9,19 @@
 </head>
 <body>
     <main>
-        <div class="left-container" style="border: 1px solid red;background-color: red;">
-            <div class="front-card-container" style="background-color: aqua;">
+        <div class="left-container">
+            <div class="card front-card-container" data-tilt data-tilt-max="25" data-tilt-speed="400">
                 <img src="./res/images/card-logo.svg" width="80" alt="card logo image">
-                <p class="card-number-text">0000 0000 0000 0000</p>
-                <p class="card-author-fullname-text">JORIS DELPEAU</p>
-                <p class="card-expiration-date">00/00</p>
+                <div class="front-card-text-container">
+                    <p class="card-number-text">0000 0000 0000 0000</p>
+                    <div>
+                        <p class="card-author-fullname-text">SHELLY FLEUR</p>
+                        <p class="card-expiration-date">00/00</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="back-card-container" style="background-color: beige;">
+            <div class="card back-card-container" data-tilt data-tilt-max="25" data-tilt-speed="400">
                 <p class="card-cvc-text">000</p>
             </div>
         </div>
@@ -26,24 +30,33 @@
             <form action="" method="post">
                 <div class="form-controls">
                     <label for="cardholder-name-input">cardholder name</label>
+                    <br>
                     <input type="text" id="cardholder-name-input" name="cardholder_name" required placeholder="e.g Joris DelPeau" pattern=".{1,10}">
                 </div>
                 <div class="form-controls">
                     <label for="card-number-input">card number</label>
-                    <input type="text" id="card-number-input" name="card_number" required inputmode="numeric" pattern="\d{16}" placeholder="e.g 1234 5678 9123 0000">
+                    <br>
+                    <input type="text" id="card-number-input" name="card_number" maxlength="19" required inputmode="numeric" pattern="[0-9 ]+" minlength="19" placeholder="e.g 1234 5678 9123 0000">
                 </div>
                 <div class="form-controls">
-                    <label for="card-expiration-date-month-input">exp. date (MM/YY)</label>
-                    <input type="text" id="card-expiration-date-month-input" name="card_expirations_date_month" maxlength="2" pattern="\d{2}" required placeholder="MM">
-                    <input type="text" id="card-expiration-date-year-input" name="card_expirations_date_year" maxlength="2" pattern="\d{2}" required placeholder="YY">
-                </div>
-                <div class="form-controls">
-                    <label for="card-cvc-input">CVC</label>
-                    <input type="text" id="card-cvc-input" required name="card_cvc" placeholder="e.g 123" maxlength="3" pattern="\d{3}">
+                    <div class="date-form-controls-inputs-container">
+                        <label for="card-expiration-date-month-input">exp. date (MM/YY)</label>
+                        <br>
+                        <div class="date-inputs-container">
+                            <input type="text" id="card-expiration-date-month-input" name="card_expirations_date_month" maxlength="2" pattern="\d{2}" required placeholder="MM">
+                            <input type="text" id="card-expiration-date-year-input" name="card_expirations_date_year" maxlength="2" pattern="\d{2}" required placeholder="YY">
+                        </div>
+                    </div>
+                    <div class="cvc-input-container">
+                        <label for="card-cvc-input">CVC</label>
+                        <br>
+                        <input type="text" id="card-cvc-input" required name="card_cvc" placeholder="e.g 123" maxlength="3" pattern="\d{3}">
+                    </div>
                 </div>
                 <button class="btn btn-confirm" type="submit">Confirm</button>
             </form>
         </div>
     </main>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 </html>

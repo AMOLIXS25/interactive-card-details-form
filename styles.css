@@ -1,0 +1,212 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('./reset.css');
+
+:root {
+    --primary-color: #370f4e;
+    --font-stack: "Space Grotesk", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-size: 18px;
+    --button-bg-color: var(--primary-color); 
+    --input-label-color: var(--primary-color);
+    --input-label-font-size: 0.9rem;
+    --bg-image: url('./res/images/bg-main-desktop.png');
+    --bg-card-front: url('./res/images/bg-card-front.png');
+    --bg-card-back: url('./res/images/bg-card-back.png');
+    --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+/**
+====== GLOBAL STYLES ======
+*/
+
+*, *::after, *::before {
+    font-weight: 500;
+    font-family: var(--font-stack);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-size: var(--font-size);
+}
+
+.btn {
+    background-color: var(--button-bg-color);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    box-shadow: var(--box-shadow);
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+}
+
+.card {
+    letter-spacing: 2px;
+    box-shadow: var(--box-shadow);
+    max-width: 428px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 7px;
+    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+    width: 75%;
+    height: 25%;
+    position: absolute;
+}
+
+/**
+======= LEFT CONTAINER =======
+*/
+
+.left-container {
+    background: var(--bg-image);
+    background-size: cover;
+    position: relative;
+    box-shadow: var(--box-shadow);
+}
+
+.front-card-container {
+    background: var(--bg-card-front);
+    top: 25%;
+    left: 40%;
+
+    .front-card-text-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .front-card-text-container div {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+    }
+}
+
+.back-card-container {
+    background: var(--bg-card-back);
+    top: 54%;
+    left: 52%;
+
+    .card-cvc-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-45%);
+        right: 10%;
+    }
+}
+
+/**
+====== RIGHT CONTAINER ======
+*/
+
+.right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        align-items: center;
+        display: flex;
+        padding: 1rem;
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    form .form-controls, form button {
+        width: 60%;
+    }
+
+    form input {
+        width: 100%;
+        outline: none;
+        border: 1px solid #cecece;
+        padding: 0.3rem;
+        border-radius: 3px;
+        transform: scale(1);
+        transition: transform 0.5s;
+    }
+
+    form input:focus {
+        border: 1px solid var(--primary-color);
+        transform: scale(1.01);
+    }
+
+    form input:invalid:focus {
+        border: 1px solid red;
+    }
+
+    form button {
+        margin-top: 1rem;
+    }
+
+    .form-controls label {
+        text-transform: uppercase;
+        color: var(--input-label-color);
+        font-size: var(--input-label-font-size);
+        letter-spacing: 2px
+    }
+}
+
+.form-controls:nth-child(3) {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+
+    .date-inputs-container {
+        display: flex;
+        width: 75%;
+        gap: 1rem;
+    }
+}
+
+/**
+====== RESPONSIVE =====
+*/
+
+@media only screen and (max-width: 1400px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    form .form-controls, form button {
+        width: 100% !important;
+    }
+
+    .date-inputs-container {
+        width: 100% !important;
+        gap: 0.3rem;
+    }
+
+    .card-cvc-text {
+        top: 50%;
+        transform: translateY(30%) !important;
+    }
+
+    .front-card-container {
+        top: 55%;
+        left: 50%;
+        transform: translateX(-60%) !important;
+        height: 60%;
+        z-index: 1;
+    }
+
+    .back-card-container {
+        top: 10%;
+        z-index: 0;
+        left: 50%;
+        transform: translateX(-40%) !important;
+        height: 60%;
+    }
+    
+}
